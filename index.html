@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>糾察隊考試</title>
+  <title>糾察隊快問快答</title>
 
   <!-- 行動裝置 Web App 設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="糾察隊考試">
+  <meta name="apple-mobile-web-app-title" content="糾察隊快問快答">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#065f46">
 
@@ -43,7 +43,7 @@
 <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col justify-between selection:bg-[#065f46] selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- 1. 頂部導航列 (標題：「糾察隊考試」、雲端連線狀態、考券複習與管理員模式)  -->
+  <!-- 1. 頂部導航列 (標題：「糾察隊快問快答」、雲端連線狀態、考題複習與管理員模式)  -->
   <!-- ===================================================================== -->
   <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
     <div class="max-w-lg mx-auto px-4 py-3 space-y-2.5">
@@ -56,7 +56,7 @@
             </svg>
           </div>
           <div class="min-w-0">
-            <h1 class="text-base sm:text-lg font-black text-slate-900 tracking-tight whitespace-nowrap truncate">糾察隊考試</h1>
+            <h1 class="text-base sm:text-lg font-black text-slate-900 tracking-tight whitespace-nowrap truncate">糾察隊快問快答</h1>
           </div>
         </div>
 
@@ -70,7 +70,7 @@
       <!-- 雙功能導航按鈕 (不設公開榮譽榜) -->
       <div class="grid grid-cols-2 gap-2.5">
         <button id="openStudyBtn" type="button" class="py-2.5 px-3 bg-slate-50 hover:bg-slate-100 active:scale-[0.98] text-slate-700 font-bold text-xs rounded-xl border border-slate-200 flex items-center justify-center gap-1.5 transition">
-          <span class="whitespace-nowrap">📚 考券複習</span>
+          <span class="whitespace-nowrap">📚 考題複習</span>
         </button>
         <button id="openAdminBtn" type="button" class="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 active:scale-[0.98] text-white font-bold text-xs rounded-xl shadow-2xs flex items-center justify-center gap-1.5 transition">
           <span class="whitespace-nowrap">⚙️ 管理員模式</span>
@@ -168,12 +168,12 @@
 
           <!-- 個人專屬年度累積積分 box -->
           <div id="verifiedAnnualPointsBox" class="bg-[#fef3c7]/70 border border-amber-200 rounded-xl px-3.5 py-2.5 flex items-center justify-between gap-2">
-            <span class="text-xs font-black text-amber-950 whitespace-nowrap shrink-0">⭐ 個人年度累積考核積分</span>
+            <span class="text-xs font-black text-amber-950 whitespace-nowrap shrink-0">⭐ 個人年度累積挑戰積分</span>
             <span id="verifiedAnnualPoints" class="text-sm font-black text-[#d97706] font-mono whitespace-nowrap shrink-0">+0 點</span>
           </div>
 
           <p id="verifiedSubMessage" class="text-xs text-slate-600 font-medium leading-relaxed">
-            身分核對正確，點擊下方按鈕即可開始考核。
+            身分核對正確，點擊下方按鈕即可開始挑戰。
           </p>
         </div>
 
@@ -183,7 +183,7 @@
           <p class="text-[11px] text-rose-600">請確認輸入是否正確，或請主管於「管理員模式 ➜ 同仁名冊」新增您的資料。</p>
         </div>
 
-        <!-- 開始考核按鈕 -->
+        <!-- 開始挑戰按鈕 -->
         <button id="startExamButton" type="button" disabled
           class="w-full py-3.5 px-4 bg-slate-200 text-slate-400 font-black text-sm rounded-xl transition flex items-center justify-center gap-2 cursor-not-allowed">
           <span class="whitespace-nowrap">開始作答</span>
@@ -270,16 +270,16 @@
       <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-[#065f46] text-white rounded-2xl p-5 space-y-4 shadow-md">
         <div class="flex items-center justify-between gap-2">
           <span id="resultQuizTitleBadge" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white/10 text-emerald-200 border border-white/10 truncate">
-            11月份糾察隊定期考核
+            11月份糾察隊定期挑戰
           </span>
           <span id="resultStatusBadge" class="text-xs font-black px-2.5 py-1 rounded-lg bg-emerald-400 text-slate-950 whitespace-nowrap shrink-0">
-            已完成考核
+            已完成本月挑戰
           </span>
         </div>
 
         <div class="flex items-end justify-between gap-2">
           <div class="min-w-0">
-            <h2 class="text-xl font-black tracking-tight whitespace-nowrap">測驗成績單</h2>
+            <h2 class="text-xl font-black tracking-tight whitespace-nowrap">挑戰結果</h2>
             <p id="resultStaffLine" class="text-xs text-slate-300 mt-1 whitespace-nowrap">受測同仁：陳怡君 (001234)</p>
           </div>
           <div class="text-right shrink-0">
@@ -328,19 +328,19 @@
 
   <!-- 頁尾 -->
   <footer class="text-center py-4 text-[11px] text-slate-400 font-medium">
-    糾察隊考試 &copy; 2026
+    糾察隊快問快答 &copy; 2026
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 3. 模態視窗群 (考券複習、管理員登入、管理員後台、明細與確認框)            -->
+  <!-- 3. 模態視窗群 (考題複習、管理員登入、管理員後台、明細與確認框)            -->
   <!-- ===================================================================== -->
 
-  <!-- Modal 1：考券複習專區 (僅顯示 quiz.id !== activeQuizId && quiz.inReviewZone === true) -->
+  <!-- Modal 1：考題複習專區 (僅顯示 quiz.id !== activeQuizId && quiz.inReviewZone === true) -->
   <div id="studyModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3.5">
     <div class="bg-white w-full max-w-lg rounded-2xl shadow-xl flex flex-col max-h-[88vh] overflow-hidden">
       <div class="p-4 border-b border-slate-100 flex items-center justify-between gap-2 shrink-0">
         <div class="min-w-0">
-          <h3 class="text-sm font-black text-slate-900 whitespace-nowrap">📚 考券複習專區</h3>
+          <h3 class="text-sm font-black text-slate-900 whitespace-nowrap">📚 考題複習專區</h3>
           <p class="text-[11px] text-slate-400 truncate">自由瀏覽已開放複習之歷史試題與 SOP 解析</p>
         </div>
         <button id="closeStudyBtn" type="button" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-black shrink-0">
@@ -401,7 +401,7 @@
         <div class="flex items-center justify-between gap-2">
           <div class="flex items-center gap-2 min-w-0">
             <span class="text-base">⚙️</span>
-            <h3 class="text-sm sm:text-base font-black text-slate-900 whitespace-nowrap truncate">糾察隊考試後台管理中心</h3>
+            <h3 class="text-sm sm:text-base font-black text-slate-900 whitespace-nowrap truncate">糾察隊快問快答後台管理中心</h3>
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <button id="adminLogoutBtn" type="button" class="px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl transition whitespace-nowrap">
@@ -449,7 +449,7 @@
           <!-- 考卷選擇與建立 -->
           <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-3">
             <div class="flex items-center justify-between gap-2 flex-wrap">
-              <span class="text-xs font-black text-slate-800 whitespace-nowrap">選擇或管理考核試卷</span>
+              <span class="text-xs font-black text-slate-800 whitespace-nowrap">選擇或管理挑戰試卷</span>
               <div class="flex items-center gap-1.5">
                 <button id="toggleCreateQuizBtn" type="button" class="px-2.5 py-1 bg-[#047857] hover:bg-[#065f46] text-white font-bold text-xs rounded-lg transition whitespace-nowrap">
                   + 新增考卷
@@ -489,7 +489,7 @@
                   <input id="quizInReviewZoneCheckbox" type="checkbox" class="w-4 h-4 mt-0.5 accent-[#047857] rounded shrink-0">
                   <div class="min-w-0">
                     <span id="reviewZoneLabelTitle" class="text-xs font-black text-slate-800 block">
-                      📚 加入「考券複習專區」（勾選後同仁可於前台複習此卷）
+                      📚 加入「考題複習專區」（勾選後同仁可於前台複習此卷）
                     </span>
                     <span id="reviewZoneLockHint" class="hidden text-[11px] font-bold text-amber-700 block mt-0.5">
                       🔒 目前發布中之考券，系統自動鎖定不列入複習專區（避免考題外洩）
@@ -911,7 +911,7 @@
         return raw;
       }
 
-      // 1-2. 考核日期時間格式解析：統一為 "YYYY/MM/DD HH:mm"（還原試算表 GMT 日期字串）
+      // 1-2. 挑戰日期時間格式解析：統一為 "YYYY/MM/DD HH:mm"（還原試算表 GMT 日期字串）
       function formatDateText(val) {
         if (val === undefined || val === null) return "";
         const raw = String(val).trim();
@@ -1008,7 +1008,7 @@
         });
       }
 
-      // 合併並去除重複考核紀錄
+      // 合併並去除重複挑戰紀錄
       function deduplicateAndNormalizeRecords(rawList) {
         if (!Array.isArray(rawList)) return [];
         const keyToIndex = new Map();
@@ -1303,7 +1303,7 @@
         return { points: 0, label: "第 4 週常態 (+0點)" };
       }
 
-      // 計算某位同仁「當年度」累積考核積分
+      // 計算某位同仁「當年度」累積挑戰積分
       function getAnnualPointsForStaff(empId) {
         if (isTestGuestAccount(empId)) return 0;
         const normTarget = normalizeEmpId(empId);
@@ -1553,7 +1553,7 @@
         }
       }
 
-      // 同仁交卷時自動 POST 寫入「考核成績紀錄」分頁
+      // 同仁交卷時自動 POST 寫入「挑戰成績紀錄」分頁
       async function postExamScoreToCloud(scorePayload) {
         try {
           await fetch(GAS_API_URL, {
@@ -1656,18 +1656,18 @@
 
         if (completedRec) {
           subMsg.innerHTML =
-            '<span class="text-[#047857] font-black block">✓ 您已完成本月考核</span>' +
+            '<span class="text-[#047857] font-black block">✓ 您已完成本月挑戰</span>' +
             '<span class="text-[11px] text-slate-500 block mt-1">關閉後不再開放查閱原試題，若有疑問請詢問出題委員。</span>';
           startBtn.disabled = true;
           startBtn.className = "w-full py-3.5 px-4 bg-slate-200 text-slate-500 font-black text-sm rounded-xl transition flex items-center justify-center gap-2 cursor-not-allowed";
-          startBtn.innerHTML = '<span class="whitespace-nowrap">🔒 本月考核已完成</span>';
+          startBtn.innerHTML = '<span class="whitespace-nowrap">🔒 本月挑戰已完成</span>';
         } else if (isGuest) {
           subMsg.textContent = "非考試同仁體驗模式，可無限次進入作答，交卷後不紀錄成績與積分。";
           startBtn.disabled = false;
           startBtn.className = "w-full py-3.5 px-4 bg-[#047857] hover:bg-[#065f46] active:scale-[0.99] text-white font-black text-sm rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer";
           startBtn.innerHTML = '<span class="whitespace-nowrap">開始作答（體驗模式）</span><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>';
         } else {
-          subMsg.textContent = "身分核對正確，點擊下方按鈕即可開始考核。";
+          subMsg.textContent = "身分核對正確，點擊下方按鈕即可開始挑戰。";
           startBtn.disabled = false;
           startBtn.className = "w-full py-3.5 px-4 bg-[#047857] hover:bg-[#065f46] active:scale-[0.99] text-white font-black text-sm rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer";
           startBtn.innerHTML = '<span class="whitespace-nowrap">開始作答</span><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>';
@@ -2134,7 +2134,7 @@
 
         const badgeSuffix = rec.isPractice ? "（練習）" : (rec.isGuestTest ? "（體驗模式）" : "");
         document.getElementById("resultQuizTitleBadge").textContent = rec.quizTitle + badgeSuffix;
-        document.getElementById("resultStatusBadge").textContent = rec.isPractice ? "練習完成" : (rec.isGuestTest ? "體驗完成" : "已完成考核");
+        document.getElementById("resultStatusBadge").textContent = rec.isPractice ? "練習完成" : (rec.isGuestTest ? "體驗完成" : "已完成本月挑戰");
 
         const empDisplay = rec.empName || rec.name || "";
         document.getElementById("resultStaffLine").textContent = "受測同仁：" + empDisplay + " (" + rec.empId + ")";
@@ -2153,13 +2153,13 @@
         if (rec.isGuestTest) {
           breakdownEl.textContent = "體驗模式（員編 0000）：本次作答不紀錄成績與積分，可無限次重複體驗";
         } else if (rec.isPractice) {
-          breakdownEl.textContent = "自主刷題練習模式：本次練習不計入個人年度考核積分";
+          breakdownEl.textContent = "自主刷題練習模式：本次練習不計入個人年度挑戰積分";
         } else if (rec.timelyPoints !== undefined) {
           breakdownEl.textContent =
             "基礎得分 +" + rec.score + " 點 ｜ 早鳥加成 +" + (rec.timelyPoints || 0) +
             " 點 ｜ 神速獎 +" + (rec.speedPoints || 0) + " 點 ｜ 滿分獎 +" + (rec.perfectPoints || 0) + " 點";
         } else {
-          breakdownEl.textContent = "本次考核總獲得積分：+" + pts + " 點（已計入年度累積積分）";
+          breakdownEl.textContent = "本次挑戰總獲得積分：+" + pts + " 點（已計入年度累積積分）";
         }
 
         const listContainer = document.getElementById("resultDetailsList");
@@ -2197,7 +2197,7 @@
       }
 
       // =====================================================================
-      // 考券複習專區 (嚴格過濾：quiz.id !== activeQuizId && quiz.inReviewZone === true)
+      // 考題複習專區 (嚴格過濾：quiz.id !== activeQuizId && quiz.inReviewZone === true)
       // =====================================================================
 
       function openStudyModal() {
@@ -2231,7 +2231,7 @@
             '<div class="py-12 px-4 text-center space-y-2">' +
               '<div class="text-3xl">📭</div>' +
               '<p class="text-sm font-black text-slate-700">目前尚無開放複習的歷史考券</p>' +
-              '<p class="text-xs text-slate-400">正在進行考核中的試卷為避免外洩，不會顯示於複習專區。</p>' +
+              '<p class="text-xs text-slate-400">正在進行挑戰中的試卷為避免外洩，不會顯示於複習專區。</p>' +
             '</div>';
           return;
         }
@@ -2683,7 +2683,7 @@
         });
 
         if (filteredRecs.length === 0) {
-          recBody.innerHTML = '<tr><td colspan="4" class="py-6 text-center text-slate-400">尚無符合條件的考核紀錄</td></tr>';
+          recBody.innerHTML = '<tr><td colspan="4" class="py-6 text-center text-slate-400">尚無符合條件的挑戰紀錄</td></tr>';
           return;
         }
 
@@ -2775,7 +2775,7 @@
         } else if (typeof rec.wrongDetails === "string" && rec.wrongDetails.trim() && rec.wrongDetails !== "全對無錯題" && rec.wrongDetails !== "[]") {
           body.innerHTML = '<div class="p-3 rounded-xl border border-rose-200 bg-rose-50/60 text-xs whitespace-pre-line text-slate-800">' + escapeHtml(rec.wrongDetails) + '</div>';
         } else {
-          body.innerHTML = '<p class="text-xs text-slate-500 text-center py-8">本次考核全數答對，無錯題紀錄！</p>';
+          body.innerHTML = '<p class="text-xs text-slate-500 text-center py-8">本次挑戰全數答對，無錯題紀錄！</p>';
         }
 
         document.getElementById("wrongDetailModal").classList.remove("hidden");
@@ -2813,7 +2813,7 @@
           if (!isGuest) {
             const startBtn = document.getElementById("startExamButton");
             startBtn.disabled = true;
-            startBtn.innerHTML = '<span class="whitespace-nowrap">🔄考券生成中，請稍後...</span>';
+            startBtn.innerHTML = '<span class="whitespace-nowrap">🔄考題生成中，請稍後...</span>';
 
             await fetchCloudData(false);
 
@@ -2828,7 +2828,7 @@
 
             if (completedRec) {
               verifyStaffEmpId(document.getElementById("staffEmpIdInput").value);
-              showToast("雲端同步確認：您已在其他裝置完成本月考核！", "🔒", "bg-slate-800");
+              showToast("雲端同步確認：您已在其他裝置完成本月挑戰！", "🔒", "bg-slate-800");
               return;
             }
             startExamSession(latestQuiz, false, false);
@@ -2894,7 +2894,7 @@
           verifyStaffEmpId(document.getElementById("staffEmpIdInput").value);
         };
 
-        // 考券複習視窗
+        // 考題複習視窗
         document.getElementById("closeStudyBtn").onclick = function () {
           document.getElementById("studyModal").classList.add("hidden");
         };
@@ -3179,10 +3179,10 @@
         document.getElementById("exportCsvButton").onclick = function () {
           const officialRecs = (appState.records || []).filter(function (r) { return !r.isPractice && !r.isGuestTest; });
           if (officialRecs.length === 0) {
-            showToast("目前尚無正式考核紀錄可匯出", "⚠️", "bg-amber-700");
+            showToast("目前尚無正式挑戰紀錄可匯出", "⚠️", "bg-amber-700");
             return;
           }
-          let csv = "\uFEFF考核日期時間,員工編號,同仁姓名,考卷名稱,得分,獲得總積分,測驗耗時,錯題數\n";
+          let csv = "\uFEFF挑戰日期時間,員工編號,同仁姓名,考卷名稱,得分,獲得總積分,測驗耗時,錯題數\n";
           officialRecs.forEach(function (r) {
             const empName = r.empName || r.name || "";
             const pts = getRecordEarnedPoints(r);
@@ -3194,7 +3194,7 @@
           const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
           const link = document.createElement("a");
           link.href = URL.createObjectURL(blob);
-          link.download = "糾察隊考試成績與積分報表_" + new Date().toISOString().slice(0, 10) + ".csv";
+          link.download = "糾察隊快問快答成績與積分報表_" + new Date().toISOString().slice(0, 10) + ".csv";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -3232,7 +3232,7 @@
           openSecurityPasswordDialog({
             icon: "🗑️",
             title: "刪除資料 — 二次密碼驗證",
-            desc: "即將清空所有考核成績與積分紀錄，此操作無法復原，請輸入管理員密碼確認執行：",
+            desc: "即將清空所有挑戰成績與積分紀錄，此操作無法復原，請輸入管理員密碼確認執行：",
             okText: "確認刪除",
             warning: false,
             onVerified: function () {
@@ -3242,7 +3242,7 @@
               refreshAdminPanelViews();
               const empVal = document.getElementById("staffEmpIdInput").value;
               if (empVal) verifyStaffEmpId(empVal);
-              postAdminConfigToCloud("已刪除所有考核資料");
+              postAdminConfigToCloud("已刪除所有挑戰資料");
             }
           });
         };
