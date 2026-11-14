@@ -43,7 +43,7 @@
 <body class="bg-[#f8fafc] text-slate-800 min-h-screen flex flex-col justify-between selection:bg-[#065f46] selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- 1. 頂部導航列 (標題：「糾察隊快問快答」、雲端連線狀態、考題複習與管理員模式)  -->
+  <!-- 1. 頂部導航列 (標題：「糾察隊快問快答」、雲端連線狀態、快問快答複習與管理員模式)  -->
   <!-- ===================================================================== -->
   <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
     <div class="max-w-lg mx-auto px-4 py-3 space-y-2.5">
@@ -70,7 +70,7 @@
       <!-- 雙功能導航按鈕 (不設公開榮譽榜) -->
       <div class="grid grid-cols-2 gap-2.5">
         <button id="openStudyBtn" type="button" class="py-2.5 px-3 bg-slate-50 hover:bg-slate-100 active:scale-[0.98] text-slate-700 font-bold text-xs rounded-xl border border-slate-200 flex items-center justify-center gap-1.5 transition">
-          <span class="whitespace-nowrap">📚 考題複習</span>
+          <span class="whitespace-nowrap">📚 快問快答複習</span>
         </button>
         <button id="openAdminBtn" type="button" class="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 active:scale-[0.98] text-white font-bold text-xs rounded-xl shadow-2xs flex items-center justify-center gap-1.5 transition">
           <span class="whitespace-nowrap">⚙️ 管理員模式</span>
@@ -332,15 +332,15 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 3. 模態視窗群 (考題複習、管理員登入、管理員後台、明細與確認框)            -->
+  <!-- 3. 模態視窗群 (快問快答複習、管理員登入、管理員後台、明細與確認框)            -->
   <!-- ===================================================================== -->
 
-  <!-- Modal 1：考題複習專區 (僅顯示 quiz.id !== activeQuizId && quiz.inReviewZone === true) -->
+  <!-- Modal 1：快問快答複習專區 (僅顯示 quiz.id !== activeQuizId && quiz.inReviewZone === true) -->
   <div id="studyModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3.5">
     <div class="bg-white w-full max-w-lg rounded-2xl shadow-xl flex flex-col max-h-[88vh] overflow-hidden">
       <div class="p-4 border-b border-slate-100 flex items-center justify-between gap-2 shrink-0">
         <div class="min-w-0">
-          <h3 class="text-sm font-black text-slate-900 whitespace-nowrap">📚 考題複習專區</h3>
+          <h3 class="text-sm font-black text-slate-900 whitespace-nowrap">📚 快問快答複習專區</h3>
           <p class="text-[11px] text-slate-400 truncate">自由瀏覽已開放複習之歷史試題與 SOP 解析</p>
         </div>
         <button id="closeStudyBtn" type="button" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-black shrink-0">
@@ -489,10 +489,10 @@
                   <input id="quizInReviewZoneCheckbox" type="checkbox" class="w-4 h-4 mt-0.5 accent-[#047857] rounded shrink-0">
                   <div class="min-w-0">
                     <span id="reviewZoneLabelTitle" class="text-xs font-black text-slate-800 block">
-                      📚 加入「考題複習專區」（勾選後同仁可於前台複習此卷）
+                      📚 加入「快問快答複習專區」（勾選後同仁可於前台複習此卷）
                     </span>
                     <span id="reviewZoneLockHint" class="hidden text-[11px] font-bold text-amber-700 block mt-0.5">
-                      🔒 目前發布中之考券，系統自動鎖定不列入複習專區（避免考題外洩）
+                      🔒 目前發布中之考券，系統自動鎖定不列入複習專區（避免快問快答外洩）
                     </span>
                   </div>
                 </label>
@@ -507,7 +507,7 @@
           <!-- 四大題型新增 / 編輯表單 -->
           <div class="bg-white border-2 border-emerald-600/20 rounded-2xl p-4 space-y-3 shadow-2xs">
             <div class="flex items-center justify-between gap-2">
-              <h4 id="qEditorHeading" class="text-xs font-black text-[#065f46] whitespace-nowrap">➕ 新增考題（支援四大題型）</h4>
+              <h4 id="qEditorHeading" class="text-xs font-black text-[#065f46] whitespace-nowrap">➕ 新增快問快答（支援四大題型）</h4>
               <button id="cancelEditQuestionBtn" type="button" class="hidden text-[11px] font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-lg whitespace-nowrap">
                 取消編輯
               </button>
@@ -1143,7 +1143,7 @@
         return stripped === "" ? "0" : stripped;
       }
 
-      // 判斷是否為 0000 體驗／測試專用帳號（可不限次數進入考題且不紀錄分數與積分）
+      // 判斷是否為 0000 體驗／測試專用帳號（可不限次數進入快問快答且不紀錄分數與積分）
       function isTestGuestAccount(rawEmpId) {
         return normalizeEmpId(rawEmpId) === "0";
       }
@@ -2197,7 +2197,7 @@
       }
 
       // =====================================================================
-      // 考題複習專區 (嚴格過濾：quiz.id !== activeQuizId && quiz.inReviewZone === true)
+      // 快問快答複習專區 (嚴格過濾：quiz.id !== activeQuizId && quiz.inReviewZone === true)
       // =====================================================================
 
       function openStudyModal() {
@@ -2413,7 +2413,7 @@
 
       function resetQuestionEditorForm() {
         appState.editingQuestionIdx = -1;
-        document.getElementById("qEditorHeading").textContent = "➕ 新增考題（支援四大題型）";
+        document.getElementById("qEditorHeading").textContent = "➕ 新增快問快答（支援四大題型）";
         document.getElementById("cancelEditQuestionBtn").classList.add("hidden");
         document.getElementById("saveQuestionButton").textContent = "💾 儲存此題";
 
@@ -2813,7 +2813,7 @@
           if (!isGuest) {
             const startBtn = document.getElementById("startExamButton");
             startBtn.disabled = true;
-            startBtn.innerHTML = '<span class="whitespace-nowrap">🔄考題生成中，請稍後...</span>';
+            startBtn.innerHTML = '<span class="whitespace-nowrap">🔄快問快答生成中，請稍後...</span>';
 
             await fetchCloudData(false);
 
@@ -2894,7 +2894,7 @@
           verifyStaffEmpId(document.getElementById("staffEmpIdInput").value);
         };
 
-        // 考題複習視窗
+        // 快問快答複習視窗
         document.getElementById("closeStudyBtn").onclick = function () {
           document.getElementById("studyModal").classList.add("hidden");
         };
