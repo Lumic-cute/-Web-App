@@ -348,8 +348,10 @@
         </button>
       </div>
 
-      <!-- 試卷切換膠囊按鈕列 -->
-      <div id="studyTabsBar" class="px-4 py-3 border-b border-slate-100 flex flex-wrap gap-2 bg-slate-50/70 shrink-0"></div>
+      <!-- 試卷切換下拉式選單列 -->
+      <div id="studyTabsBar" class="px-4 py-2.5 border-b border-slate-100 bg-slate-50/70 shrink-0">
+        <select id="studyQuizSelect" aria-label="選擇複習考券" class="w-full text-xs sm:text-sm font-bold p-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#065f46] focus:border-transparent transition"></select>
+      </div>
 
       <!-- 試卷資訊與自主刷題按鈕 -->
       <div id="studyHeaderInfoBar" class="px-4 py-3 bg-emerald-50/70 border-b border-emerald-100 flex items-center justify-between gap-3 shrink-0">
@@ -2216,10 +2218,11 @@
 
       function renderStudyModal() {
         const tabsBar = document.getElementById("studyTabsBar");
+        const quizSelect = document.getElementById("studyQuizSelect");
         const headerBar = document.getElementById("studyHeaderInfoBar");
         const container = document.getElementById("studyQuestionsContainer");
 
-        tabsBar.innerHTML = "";
+        quizSelect.innerHTML = "";
         container.innerHTML = "";
 
         const reviewQuizzes = getReviewZoneQuizzes();
@@ -2240,19 +2243,12 @@
         headerBar.classList.remove("hidden");
 
         reviewQuizzes.forEach(function (qz) {
-          const active = qz.id === appState.studySelectedQuizId;
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = active
-            ? "px-4 py-2.5 rounded-full text-sm font-bold leading-normal whitespace-nowrap shrink-0 inline-flex items-center justify-center bg-slate-900 text-white shadow-xs transition"
-            : "px-4 py-2.5 rounded-full text-sm font-bold leading-normal whitespace-nowrap shrink-0 inline-flex items-center justify-center bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition";
-          btn.textContent = qz.title;
-          btn.onclick = function () {
-            appState.studySelectedQuizId = qz.id;
-            renderStudyModal();
-          };
-          tabsBar.appendChild(btn);
+          const opt = document.createElement("option");
+          opt.value = qz.id;
+          opt.textContent = qz.title;
+          quizSelect.appendChild(opt);
         });
+        quizSelect.value = appState.studySelectedQuizId;
 
         const selectedQuiz = appState.quizDatabase[appState.studySelectedQuizId];
         if (!selectedQuiz) return;
@@ -2895,6 +2891,10 @@
         };
 
         // 快問快答複習視窗
+        document.getElementById("studyQuizSelect").onchange = function (e) {
+          appState.studySelectedQuizId = e.target.value;
+          renderStudyModal();
+        };
         document.getElementById("closeStudyBtn").onclick = function () {
           document.getElementById("studyModal").classList.add("hidden");
         };
